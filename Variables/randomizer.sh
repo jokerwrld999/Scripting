@@ -2,7 +2,7 @@
 
 # >>>> Variables
 DIR=/usr/share/dict/words
-RECORDS=awk 'END{print NR}'
+RECORDS=$(awk 'END{print NR}')
 RandInRage=$(($RANDOM%$RECORDS+1))
 
 
