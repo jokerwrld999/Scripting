@@ -3,4 +3,5 @@
 FILE=$1
 DATE=$(date +%Y-%m-%d)
 
-cp $1 $DATE_FILE
+FILENAME="$DATE_$FILE"
+cp $1 $FILENAME
