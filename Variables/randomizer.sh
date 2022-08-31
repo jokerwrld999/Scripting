@@ -6,4 +6,4 @@ RECORDS=$(awk 'END{print NR}')
 RandInRage=$(($RANDOM%$RECORDS+1))
 
 
-nano /usr/share/dict/words | awk "{print $RandInRange, $0}"
+cat /usr/share/dict/words | awk "{print $RandInRange, $0}"
