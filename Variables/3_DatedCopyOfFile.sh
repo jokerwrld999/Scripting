@@ -2,7 +2,7 @@
 
 # >>>> Global Variables
 # *** Filename Argument
-FILE=$1
+FILE=text.txt
 # *** Date In Format Year-Month-Day
 DATE=$(date +%Y-%m-%d)
 # *** Delimiter Type
