@@ -2,7 +2,7 @@
 
 # >>>> Global Variables
 # *** Filename Argument
-FILE=$1
+FILE=text.txt
 # *** Date In Format Year-Month-Day
 DATE=$(date +%Y-%m-%d)
 # *** Delimiter Type
@@ -22,6 +22,10 @@ NAMEOFBACKUP=$FILENAME$DELIMITER$DATE$EXTENTION
 
 
 # >>>> Backup With New Filename
-cp $1 $BACKUPNAME
-cp $1 $NAMEOFBACKUP
+#cp $1 $BACKUPNAME
+#cp $1 $NAMEOFBACKUP
 
+# >>>> Last Challenge
+FILES=$@
+
+basename -s $FILENAME -a $FILES | xargs -n1 -i cp $FILENAME.{} $DATE.{}
