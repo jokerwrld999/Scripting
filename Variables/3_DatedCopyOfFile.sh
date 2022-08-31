@@ -13,7 +13,7 @@ BACKUPNAME=$DATE$DELIMITER$FILE
 
 # >>>> Set Another Filename Format
 # *** Get Name Of The File
-FILENAME=($FILE | cut -d\. -f1)
+FILENAME=$($FILE | cut -d\. -f1)
 # *** Get Extention Of The File
 EXTENTION=$($FILE | sed -E 's|(.[^.]*){1}||')
 
