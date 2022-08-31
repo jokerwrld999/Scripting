@@ -11,5 +11,5 @@ RECORDS=$(wc -l < $DIR)
 RandInRage=$(($RANDOM%$RECORDS+1))
 
 # >>>> Get Random Word From File
-LIMITWORD=$(grep -# "^.{$CHARLENGTH}$" $DIR | sed -n "$RandInRage p")
+LIMITWORD=$(grep -E "^.{$CHARLENGTH}$" $DIR | sed -n "$RandInRage p")
 echo "Your random word is $LIMITWORD from $DIR file"
