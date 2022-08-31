@@ -13,9 +13,9 @@ BACKUPNAME=$DATE$DELIMITER$FILE
 
 # >>>> Set Another Filename Format
 # *** Get Name Of The File
-FILENAME=$($FILE | cut -d\. -f1)
+FILENAME=$(echo "$FILE" | cut -d\. -f1)
 # *** Get Extention Of The File
-EXTENTION=$($FILE | sed -E 's|(.[^.]*){1}||')
+EXTENTION=$(echo "$FILE" | sed -E 's|(.[^.]*){1}||')
 
 # *** Set Full Name Of The File
 NAMEOFBACKUP=$FILENAME$DELIMITER$DATE$EXTENTION
