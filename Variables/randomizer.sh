@@ -2,8 +2,9 @@
 
 # >>>> Variables
 DIR=/usr/share/dict/words
-RECORDS=$(awk 'END{print NR}')
+RECORDS=$(wc -l < $DIR)
+echo $RECORDS
 RandInRage=$(($RANDOM%$RECORDS+1))
+echo $RandInRage
 
-
-cat /usr/share/dict/words | awk "{print $RandInRange, $0}"
+cat $DIR | sed -n "$RandInRage p"
