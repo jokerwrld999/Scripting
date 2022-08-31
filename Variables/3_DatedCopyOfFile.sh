@@ -25,3 +25,7 @@ NAMEOFBACKUP=$FILENAME$DELIMITER$DATE$EXTENTION
 cp $1 $BACKUPNAME
 cp $1 $NAMEOFBACKUP
 
+# >>>> Last Challenge
+FILES=$@
+
+basename -s $FILENAME -a $FILES | xargs -n1 -i mv $FILENAME.{} $DATE.{}
