@@ -4,8 +4,8 @@
 PACKS="httpd unzip wget"
 WEBDIR=/var/www/html
 SERVICE=httpd
-ZIP=website.zip
-BASENAME=$(basename $WEBDIR | cut -d. -f1)
+BASENAME=$(basename $URL | cut -d. -f1)
+ZIP=$BASENAME.zip
 
 # >>>> Installing Packs
 sudo dnf install -y $PACKS
