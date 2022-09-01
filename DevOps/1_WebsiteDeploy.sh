@@ -8,7 +8,7 @@ ZIP=website.zip
 BASENAME=$(basename $WEBDIR | cut -d. -f1)
 
 # >>>> Installing Packs
-sudo dnf install $PACKS
+sudo dnf install -y $PACKS
 
 # >>>> Enabling Service
 sudo systemctl start $SERVICE
@@ -19,10 +19,10 @@ echo "Please, enter a URL to a website, so I can deploy your resource"
 read URL
 
 # >>>> Downloading And Unpacking Website
-wget -O $ZIP -P $WEBDIR/ $URL
+sudo wget -O $ZIP -P $WEBDIR/ $URL
 unzip $WEBDIR/$ZIP -d $WEBDIR
 cd $WEBDIR/$BASENAME/
-mv ./* $WEBDIR/
+sudo mv ./$BASENAME/* $WEBDIR/
 #Add Cleaning feature
 
 # >>>> Reastart Service
