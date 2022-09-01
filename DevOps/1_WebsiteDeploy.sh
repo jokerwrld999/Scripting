@@ -4,8 +4,7 @@
 PACKS="httpd unzip wget"
 WEBDIR=/var/www/html
 SERVICE=httpd
-BASENAME=$(basename $URL | cut -d. -f1)
-ZIP=$BASENAME.zip
+
 
 # >>>> Installing Packs
 sudo dnf install -y $PACKS
@@ -17,6 +16,10 @@ sudo systemctl enable $SERVICE
 # >>>> Getting an URL
 echo "Please, enter a URL to a website, so I can deploy your resource"
 read URL
+
+# *** Local Variables
+BASENAME=$(basename $URL | cut -d. -f1)
+ZIP=$BASENAME.zip
 
 # >>>> Downloading And Unpacking Website
 sudo wget -O $ZIP -P $WEBDIR/ $URL
