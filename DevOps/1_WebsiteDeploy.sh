@@ -8,11 +8,11 @@ ZIP=website.zip
 BASENAME=$(basename $WEBDIR | cut -d. -f1)
 
 # >>>> Installing Packs
-sudo apt install $PACKS
+sudo dnf install $PACKS
 
 # >>>> Enabling Service
 sudo systemctl start $SERVICE
-sydo systemctl enable $SERVICE
+sudo systemctl enable $SERVICE
 
 # >>>> Getting an URL
 echo "Please, enter a URL to a website, so I can deploy your resource"
