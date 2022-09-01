@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # >>>> Global Variables
-PACKS="httpd, unzip, wget"
+PACKS="httpd unzip wget"
 WEBDIR=/var/www/html
 SERVICE=httpd
 ZIP=website.zip
