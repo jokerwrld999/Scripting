@@ -22,7 +22,7 @@ BASENAME=$(basename $URL | cut -d. -f1)
 ZIP=$BASENAME.zip
 
 # >>>> Downloading And Unpacking Website
-sudo wget -P $WEBDIR/ -O $ZIP $URL 
+sudo wget -O $WEBDIR/$ZIP $URL 
 unzip $WEBDIR/$ZIP -d $WEBDIR/
 cd $WEBDIR/$BASENAME/
 sudo mv ./$BASENAME/* $WEBDIR/
