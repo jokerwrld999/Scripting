@@ -15,8 +15,8 @@ sudo systemctl enable $SERVICE
 
 # >>>> Getting an URL
 echo "Please, enter a URL to a website, so I can deploy your resource"
-#read URL
-URL=https://www.tooplate.com/download/2102_constructive
+read URL
+#URL=https://www.tooplate.com/download/2102_constructive
 
 # >>>> Local Variables
 BASENAME=$(basename $URL | cut -d '.' -f1)
