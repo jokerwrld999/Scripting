@@ -31,7 +31,7 @@ WEBSITE=$TMP/$BASENAME/$FOLDERNAME
 
 # >>>> Plasing Website And Cleaning TMP
 sudo rm -rf $WEBDIR/*
-sudo mv $WEBSITE/* $WEBDIR/
+sudo mv -r $WEBSITE/* $WEBDIR/
 sudo rm -rf $TMP/*
 
 # >>>> Reastart Service
