@@ -15,7 +15,8 @@ sudo systemctl enable $SERVICE
 
 # >>>> Getting an URL
 echo "Please, enter a URL to a website, so I can deploy your resource"
-read URL
+#read URL
+URL=https://www.tooplate.com/download/2102_constructive
 
 # >>>> Local Variables
 BASENAME=$(basename $URL | cut -d '.' -f1)
@@ -23,9 +24,9 @@ ZIP=$BASENAME.zip
 
 # >>>> Downloading And Unpacking Website
 wget -O $TMP/$ZIP $URL 
-sudo unzip $TMP/$ZIP -d $TMP/$BASENAME/ > logs.log
+sudo unzip $TMP/$ZIP -d $TMP/$BASENAME/ > $TMP/logs.log
 # *** Retrive The Name Of Website Folder
-FOLDERNAME=$(cat logs.log | sed -n -e "s|^.*$BASENAME/||p" | cut -d '/' -f1 | sed -n "1 p")
+FOLDERNAME=$(cat $TMP/logs.log | sed -n -e "s|^.*$BASENAME/|$BASENAME/|p" | cut -d '/' -f1 | sed -n "1 p")
 # *** Website Folder Location
 WEBSITE=$TMP/$BASENAME/$FOLDERNAME/
 
