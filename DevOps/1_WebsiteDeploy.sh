@@ -4,7 +4,7 @@
 PACKS="httpd unzip wget"
 WEBDIR=/var/www/html
 SERVICE=httpd
-TMP=/tmp/
+TMP=/tmp
 
 # >>>> Installing Packs
 sudo dnf install -y $PACKS
