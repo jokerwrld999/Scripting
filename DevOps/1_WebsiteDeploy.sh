@@ -30,11 +30,13 @@ FOLDERNAME=$(cat logs.log | sed -n -e "s|^.*$BASENAME/||p" | cut -d '/' -f1 | se
 WEBSITE=$TMP/$BASENAME/$FOLDERNAME
 
 # >>>> Plasing Website And Cleaning TMP
+sudo rm -rf $WEBDIR/*
 sudo mv $WEBSITE/* $WEBDIR/
 sudo rm -rf $TMP/*
 
 # >>>> Reastart Service
 sudo systemctl restart $SERVICE
+#/sbin/restorecon -v /var/www/html/index.html 
 
 #grep link intet
 ip addr
