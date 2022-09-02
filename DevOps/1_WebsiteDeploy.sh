@@ -27,7 +27,7 @@ sudo unzip $TMP/$ZIP -d $TMP/$BASENAME/ > logs.log
 # *** Retrive The Name Of Website Folder
 FOLDERNAME=$(cat logs.log | sed -n -e "s|^.*$BASENAME/||p" | cut -d '/' -f1 | sed -n "1 p")
 # *** Website Folder Location
-WEBSITE=$TMP/$BASENAME/$FOLDERNAME
+WEBSITE=$TMP/$BASENAME/$FOLDERNAME/
 
 # >>>> Plasing Website And Cleaning TMP
 sudo rm -rf $WEBDIR/*
