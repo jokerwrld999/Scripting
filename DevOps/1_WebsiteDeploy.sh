@@ -16,7 +16,6 @@ sudo systemctl enable $SERVICE
 # >>>> Getting an URL
 echo "Please, enter a URL to a website, so I can deploy your resource"
 read URL
-#URL=https://www.free-css.com/assets/files/free-css-templates/download/page282/astro-motion.zip
 
 # >>>> Local Variables
 BASENAME=$(basename $URL | cut -d '.' -f1)
