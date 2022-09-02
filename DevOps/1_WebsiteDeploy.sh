@@ -25,8 +25,10 @@ ZIP=$BASENAME.zip
 # >>>> Downloading And Unpacking Website
 wget -O $TMP/$ZIP $URL 
 sudo unzip $TMP/$ZIP -d $TMP/$BASENAME/ > $TMP/logs.log
+
 # *** Retrive The Name Of Website Folder
-FOLDERNAME=$(cat $TMP/logs.log | sed -n -e "s|^.*$BASENAME/|$BASENAME/|p" | cut -d '/' -f2 | sed -n "1 p")
+FOLDERNAME=$(cat $TMP/logs.log | sed -n 's|\(/index\).*||p' | sed -n 's|.*/||p')
+
 # *** Website Folder Location
 WEBSITE=$TMP/$BASENAME/$FOLDERNAME/
 
@@ -40,4 +42,4 @@ sudo systemctl restart $SERVICE
 #/sbin/restorecon -v /var/www/html/index.html 
 
 #grep link intet
-ip addr
+ip address
