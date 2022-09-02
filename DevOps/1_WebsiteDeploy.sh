@@ -4,7 +4,7 @@
 PACKS="httpd unzip wget"
 WEBDIR=/var/www/html
 SERVICE=httpd
-TMP=/tmp/
+TMP=/tmp
 
 # >>>> Installing Packs
 sudo dnf install -y $PACKS
@@ -27,14 +27,16 @@ sudo unzip $TMP/$ZIP -d $TMP/$BASENAME/ > logs.log
 # *** Retrive The Name Of Website Folder
 FOLDERNAME=$(cat logs.log | sed -n -e "s|^.*$BASENAME/||p" | cut -d '/' -f1 | sed -n "1 p")
 # *** Website Folder Location
-WEBSITE=$TMP/$BASENAME/$FOLDERNAME
+WEBSITE=$TMP/$BASENAME/$FOLDERNAME/
 
 # >>>> Plasing Website And Cleaning TMP
-sudo mv $WEBSITE/* $WEBDIR/
+sudo rm -rf $WEBDIR/*
+sudo cp -r $WEBSITE/* $WEBDIR/
 sudo rm -rf $TMP/*
 
 # >>>> Reastart Service
 sudo systemctl restart $SERVICE
+#/sbin/restorecon -v /var/www/html/index.html 
 
 #grep link intet
 ip addr
