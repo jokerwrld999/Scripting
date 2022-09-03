@@ -4,7 +4,7 @@ read -p "Enter a number: " NUM
 echo
 echo "You have entered $NUM"
 
-if [$NUM -gt 100]
+if [ $NUM -gt 100 ] 
 then
     echo "We entered in IF block"
     sleep 5
