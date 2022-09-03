@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Find The Number Of Network Interfaces
-INTERFACES=$(ip address | grep -ic mtu)
+INTERFACES=$(ip address | grep -v LOOPBACK | grep -ic mtu)
 
 if [ $INTERFACES -eq 1 ]
 then
