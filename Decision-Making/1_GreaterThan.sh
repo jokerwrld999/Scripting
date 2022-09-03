@@ -11,6 +11,8 @@ then
     echo "Your Number is grater than 100"
     echo
     date
+else
+    echo "You've enterd number less than 100."
 fi
 
 echo "Out of IF block"
