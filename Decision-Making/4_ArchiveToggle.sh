@@ -15,14 +15,16 @@ then
     else
         echo "There was an error while unarchiving $BACKUPFILE"
     fi
-elif [[ -n $1 ]] && [[ -e $1 ]] || [[ -d $1 ]] 
-then
-    echo "Okay, let's archive $1"
-    tar -cjvf $BACKUPFILE $1
-    if [ $? = 0 ]
+else 
+    if [[ -n $1 ]] && [[ -e $1 ]] || [[ -d $1 ]] 
     then
-        echo "Your $1 archived succsessfully"
-    else
-        echo "There was an error while archiving $1"
+        echo "Okay, let's archive $1"
+        tar -cjvf $BACKUPFILE $1
+        if [ $? = 0 ]
+        then
+            echo "Your $1 archived succsessfully"
+        else
+            echo "There was an error while archiving $1"
+        fi
     fi 
 fi
