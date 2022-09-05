@@ -5,10 +5,10 @@ BACKUPFILE=backup.tbz
 ISARCHIVE= echo $1 | sed -n 's/.*\(.t[ab]\)/\1/p' 
 
 
-if [[ -n $1 ]] && [[ $ISARCHIVE = .tbz ]] #|| [[ $ISARCHIVE = ".tar.bz2" ]] || [[ $ISARCHIVE = ".tb2" ]] 
+if [[ -n $1 ]] && [[ $ISARCHIVE = ".tbz" ]] || [[ $ISARCHIVE = ".tar.bz2" ]] || [[ $ISARCHIVE = ".tb2" ]] 
 then
    echo "Oh, there is an archive, let's unarchive it"
-    tar -xjvf $BACKUPFILE
+    tar -xjvf $1
     if [ $? = 0 ]
     then
         echo "Your $BACKUPFILE unarchived succsessfully"
