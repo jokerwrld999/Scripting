@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z $1]
+if [ -z $1 ]
 then
     echo "You haven't passed any arguments, please gimme some arguments"
 else
