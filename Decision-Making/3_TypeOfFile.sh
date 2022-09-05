@@ -12,10 +12,11 @@ then
     elif [ -r $1 ]
     then
         echo "So, this $1 is a file and I can read it if you want to"
-    fi
+    
 else
     echo "Sorry, but what did you give to me? I don't now what is it."
     echo "Can you give me a file or a directory, please"
+    fi
 fi    
 
     
