@@ -6,7 +6,7 @@ read -p "Line Number: " LINENUM
 
 # >>>> Number to echo
 case $LINENUM in
-    1 || [2-9]1) 
+    ( 1 || [2-9]1 ) 
         FORMATNUM="$LINENUM"st 
         ;;
 
