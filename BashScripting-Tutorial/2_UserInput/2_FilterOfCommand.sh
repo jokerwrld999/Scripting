@@ -15,7 +15,8 @@ read -p "Permissions - " PERMS
 case $PERMS in
     Y ) echo Great ;;
     N ) echo NoGreat ;;
-    * ) echo "Are you retarded or what?" ;;
+    * ) echo "Are you retarded or what?" 
+        read PERMS ;;
 esac
 read -p "Number of hard links to the file - " NUMLINKS
 read -p "File Owner - " OWNER
