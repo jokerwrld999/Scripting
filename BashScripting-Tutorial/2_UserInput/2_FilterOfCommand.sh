@@ -19,10 +19,11 @@ do
         read -p "Permissions $i - " $i
         if [ $i ==  "Y" ] || [ $i == N ]
         then
+            echo "Great"
             break
         else 
-        echo "Are you retarded or what?"
-        echo "Commone you stupid ass, just type Y or N" 
+            echo "Are you retarded or what?"
+            echo "Commone you stupid ass, just type Y or N" 
         fi
     done
 done
