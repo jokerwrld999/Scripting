@@ -11,16 +11,24 @@ echo "Please, type Y or N for what you want"
 echo ====================
 echo
 
-ARGS="PERMS NUMLINKS OWNER"
-for i in $ARGS
+FIELDS="PERMS NUMLINKS OWNER"
+for FIELD in $FIELDS
 do
+    case $FIELD in
+        PERMS ) MSG="Permissions - " ;;
+        OWNER ) MSG="File Owner - " ;;
+        GROUP ) MSG="File Group - " ;;
+        SIZE ) MSG="File Size - " ;;
+        DATE ) MSG="Date and Time - " ;;
+        FILENAME ) MSG="Filename - " ;;
+        * ) MSG="Incorrect Data"
+    esac
     while :
     do
-        read -p "Permissions $i - " beta
-        echo "That's your answer: $beta"
-        if [[ $beta =  "Y" ]] || [[ $beta = N ]]
+        read -p "$MSG" TMP
+        if [[ $TMP =  "Y" ]] || [[ $TMP = N ]]
         then
-            export $i=$beta
+            export $FIELD=$TMP
             echo "Great"
             break
         else 
@@ -29,10 +37,4 @@ do
         fi
     done   
 done
-echo $PERMS
-#read -p "Number of hard links to the file - " NUMLINKS
-#read -p "File Owner - " OWNER
-#read -p "File Group - " GROUP
-#read -p "File Size - " SIZE
-#read -p "Date and Time - " DATE
-#read -p "Filename - " FILENAME 
+echo $FIELDS
