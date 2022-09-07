@@ -36,8 +36,11 @@ do
             break
         else 
             echo "Are you retarded or what?"
-            echo "Commone you stupid ass, just type Y or N" 
+            echo "Come on you stupid ass, just type Y or N" a
         fi
     done   
 done
-echo $FIELDS
+
+STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
+echo $STACK
+ls -l | awk '{print $1 $2 $3 $4 $5 $6}'
