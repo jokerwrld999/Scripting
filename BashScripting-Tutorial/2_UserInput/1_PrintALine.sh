@@ -2,7 +2,7 @@
 
 # >>>> Number Of Line
 echo "Hey, what line do you want to print?"
-read -p "Line Number: " LINENUM
+read LINENUM
 
 # >>>> Number to echo
 case $LINENUM in 
