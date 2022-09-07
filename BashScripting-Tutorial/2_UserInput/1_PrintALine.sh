@@ -6,10 +6,10 @@ read -p "Line Number: " LINENUM
 
 # >>>> Number to echo
 case $LINENUM in
-    1 || [2-9]1) FORMATNUM="$LINENUM"st ;;
-    2 || [2-9]2) FORMATNUM="$LINENUM"nd ;;
-    3 || [2-9]3) FORMATNUM="$LINENUM"rd ;;
-    [4-9] || 1[0-9]) FORMATNUM="$LINENUM"th ;;
+    [[ 1]] || [[ [2-9]1 ]]) FORMATNUM="$LINENUM"st ;;
+    [[ 2 ]] || [[ [2-9]2 ]]) FORMATNUM="$LINENUM"nd ;;
+    [[ 3 ]] || [[ [2-9]3 ]]) FORMATNUM="$LINENUM"rd ;;
+    [[ [4-9] ]] || [[ 1[0-9] ]]) FORMATNUM="$LINENUM"th ;;
     *) FORMATNUM="$LINENUM" ;;
 esac
 
