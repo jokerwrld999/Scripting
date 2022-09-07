@@ -19,8 +19,8 @@ case $LINENUM in
         FORMATNUM="$LINENUM"rd
         ;;
 
-    for $LINENUM in {4..20};)
-        FORMATNUM="$LINENUM"th
+    for $LINENUM in {4..20}; do FORMATNUM="$LINENUM"th; done)
+        $FORMATNUM
         ;;
 
     *)
