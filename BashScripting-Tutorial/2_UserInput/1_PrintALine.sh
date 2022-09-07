@@ -8,7 +8,7 @@ read -p "Line Number: " LINENUM
 case $LINENUM in 
 
     1)
-        FORMATNUM="$LINENUM"+"st"
+        FORMATNUM="$LINENUM"st
         ;;
 
     2)
@@ -20,7 +20,7 @@ case $LINENUM in
         ;;
 
     {4..20})
-        FORMATNUM="$LINENUM"+"th"
+        FORMATNUM="$LINENUM"th
         ;;
 
     *)
