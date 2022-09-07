@@ -17,10 +17,10 @@ do
     while :
     do
         read -p "Permissions $i - " beta
-        $i=$beta
         echo "That's your answer: $beta"
         if [[ $beta =  "Y" ]] || [[ $beta = N ]]
         then
+            $i=$beta
             echo "Great"
             break
         else 
