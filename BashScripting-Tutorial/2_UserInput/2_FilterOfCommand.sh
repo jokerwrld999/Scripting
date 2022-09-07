@@ -25,6 +25,7 @@ do
         echo "Commone you stupid ass, just type Y or N" 
     fi   
 done
+echo $answ $beta
 #read -p "Number of hard links to the file - " NUMLINKS
 #read -p "File Owner - " OWNER
 #read -p "File Group - " GROUP
