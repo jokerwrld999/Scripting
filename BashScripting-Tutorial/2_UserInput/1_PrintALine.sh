@@ -19,7 +19,7 @@ case $LINENUM in
         FORMATNUM="$LINENUM"rd
         ;;
 
-    {4..20})
+    [4-20])
         FORMATNUM="$LINENUM"th
         ;;
 
