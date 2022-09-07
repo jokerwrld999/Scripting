@@ -19,7 +19,7 @@ do
         read -p "Permissions $i - " beta
         $i=$beta
         echo "That's your answer: $beta"
-        if [[ $i =  "Y" ]] || [[ $i = N ]]
+        if [[ $beta =  "Y" ]] || [[ $beta = N ]]
         then
             echo "Great"
             break
@@ -29,7 +29,7 @@ do
         fi
     done   
 done
-echo $beta
+echo $PERMS
 #read -p "Number of hard links to the file - " NUMLINKS
 #read -p "File Owner - " OWNER
 #read -p "File Group - " GROUP
