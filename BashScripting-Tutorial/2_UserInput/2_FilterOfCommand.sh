@@ -12,7 +12,7 @@ echo ====================
 echo
 
 read -p "Permissions - " PERMS
-while [ $PERMS !=  Y ] || [ $PERMS != N ] 
+while [ $PERMS !=  "Y" ] || [ $PERMS != N ] 
 do
     echo "Are you retarded or what?" 
     read $PERMS
