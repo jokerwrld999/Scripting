@@ -20,7 +20,7 @@ do
         echo "That's your answer: $beta"
         if [[ $beta =  "Y" ]] || [[ $beta = N ]]
         then
-            $i=$beta
+            export $i=$beta
             echo "Great"
             break
         else 
