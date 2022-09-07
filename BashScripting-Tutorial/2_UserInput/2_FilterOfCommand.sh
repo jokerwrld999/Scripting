@@ -12,7 +12,7 @@ echo ====================
 echo
 
 read -p "Permissions - " PERMS
-If [ $PERMS ==  Y] || [$PERMS == N] then
+if [ $PERMS ==  Y] || [$PERMS == N] then
     echo Great
 else
     echo "Are you retarded or what?" 
