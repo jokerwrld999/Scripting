@@ -11,7 +11,12 @@ echo "Please, type Y or N for what you want"
 echo ====================
 echo
 
-read -p "Permissions - " PRERMS
+read -p "Permissions - " PERMS
+case $PERMS in
+    Y ) echo Great ;;
+    N ) echo NoGreat ;;
+    * ) echo "Are you retarded or what?" ;;
+esac
 read -p "Number of hard links to the file - " NUMLINKS
 read -p "File Owner - " OWNER
 read -p "File Group - " GROUP
