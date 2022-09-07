@@ -17,18 +17,18 @@ do
     while :
     do
         case $FIELD in
-        PERMS ) MSG="Permissions - " ;;
-        NUMLINKS ) MSG="Number of links - " ;;
-        OWNER ) MSG="File Owner - " ;;
-        GROUP ) MSG="File Group - " ;;
-        SIZE ) MSG="File Size - " ;;
-        DATE ) MSG="Date and Time - " ;;
-        FILENAME ) MSG="Filename - " ;;
-        * ) MSG="Incorrect Data"
+        ( PERMS ) MSG="Permissions - " ;;
+        ( NUMLINKS ) MSG="Number of links - " ;;
+        ( OWNER ) MSG="File Owner - " ;;
+        ( GROUP ) MSG="File Group - " ;;
+        ( SIZE ) MSG="File Size - " ;;
+        ( DATE ) MSG="Date and Time - " ;;
+        ( FILENAME ) MSG="Filename - " ;;
+        ( * ) MSG="Incorrect Data" ;;
         esac
 
         read -p "$MSG" TMP
-        
+
         if [[ $TMP =  "Y" ]] || [[ $TMP = N ]]
         then
             export $FIELD=$TMP
