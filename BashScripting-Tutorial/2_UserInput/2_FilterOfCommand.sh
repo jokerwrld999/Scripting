@@ -14,18 +14,18 @@ echo
 FIELDS="PERMS NUMLINKS OWNER"
 for FIELD in $FIELDS
 do
-    case $FIELD in
-        $FIELD ) MSG="Permissions - " ;;
-        $FIELD ) MSG="Permissions - " ;;
-        $FIELD ) MSG="File Owner - " ;;
-        $FIELD ) MSG="File Group - " ;;
-        $FIELD ) MSG="File Size - " ;;
-        $FIELD ) MSG="Date and Time - " ;;
-        $FIELD ) MSG="Filename - " ;;
-        * ) MSG="Incorrect Data"
-    esac
     while :
     do
+        case $FIELD in
+        PERMS ) MSG="Permissions - " ;;
+        NUMLINKS ) MSG="Number of links - " ;;
+        OWNER ) MSG="File Owner - " ;;
+        GROUP ) MSG="File Group - " ;;
+        SIZE ) MSG="File Size - " ;;
+        DATE ) MSG="Date and Time - " ;;
+        FILENAME ) MSG="Filename - " ;;
+        * ) MSG="Incorrect Data"
+    esac
         read -p "$MSG" TMP
         if [[ $TMP =  "Y" ]] || [[ $TMP = N ]]
         then
