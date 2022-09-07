@@ -12,11 +12,11 @@ case $LINENUM in
         ;;
 
     2)
-        FORMATNUM="$LINENUM"+"nd"
+        FORMATNUM="$LINENUM"nd
         ;;
 
     3)
-        FORMATNUM="$LINENUM"+"rd"
+        FORMATNUM="$LINENUM"rd
         ;;
 
     {4..20})
