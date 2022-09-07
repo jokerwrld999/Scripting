@@ -12,12 +12,12 @@ echo ====================
 echo
 
 read -p "Permissions - " PERMS
-case $PERMS in
-    Y ) echo Great ;;
-    N ) echo NoGreat ;;
-    * ) echo "Are you retarded or what?" 
-        read $PERMS ;;
-esac
+If [[ $PERMS ==  Y] || [$PERMS == N]] then
+    echo Great
+else
+    echo "Are you retarded or what?" 
+    read $PERMS
+fi
 read -p "Number of hard links to the file - " NUMLINKS
 read -p "File Owner - " OWNER
 read -p "File Group - " GROUP
