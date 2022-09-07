@@ -16,7 +16,7 @@ for i in $ARGS
 do
     i=$(read -p "Permissions $i - ")
     echo "That's your answer: $i"
-    if [ $i ==  "Y" ] || [ $i == N ]
+    if [[ $i ==  "Y" ]] || [[ $i == N ]]
     then
         echo "Great"
         break
