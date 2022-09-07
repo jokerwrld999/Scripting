@@ -14,8 +14,8 @@ echo
 ARGS="PERMS NUMLINKS OWNER"
 for i in $ARGS
 do
-    i=$(read -p "Permissions $i - ")
-    echo "That's your answer: $i"
+    answ=$(read -p "Permissions $i - ")
+    echo "That's your answer: $answ"
     if [[ $i ==  "Y" ]] || [[ $i == N ]]
     then
         echo "Great"
