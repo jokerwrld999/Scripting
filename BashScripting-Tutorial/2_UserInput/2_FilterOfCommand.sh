@@ -14,18 +14,16 @@ echo
 ARGS="PERMS NUMLINKS OWNER"
 for i in $ARGS
 do
-    
-        READ=$(read -p "Permissions $i - ")
-        echo "That's your answer: $READ"
-        if [ $i ==  "Y" ] || [ $i == N ]
-        then
-            echo "Great"
-            break
-        else 
-            echo "Are you retarded or what?"
-            echo "Commone you stupid ass, just type Y or N" 
-        fi
-    
+    read -p "Permissions $i - " READ
+    echo "That's your answer: $READ"
+    if [ $i ==  "Y" ] || [ $i == N ]
+    then
+        echo "Great"
+        break
+    else 
+        echo "Are you retarded or what?"
+        echo "Commone you stupid ass, just type Y or N" 
+    fi   
 done
 #read -p "Number of hard links to the file - " NUMLINKS
 #read -p "File Owner - " OWNER
