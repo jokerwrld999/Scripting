@@ -16,7 +16,7 @@ for i in $ARGS
 do
     while :
     do 
-        read -p "Permissions - " $i
+        read -p "Permissions $i - " $i
         if [ $i ==  "Y" ] || [ $i == N ]
         then
             break
