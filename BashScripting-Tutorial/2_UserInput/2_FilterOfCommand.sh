@@ -19,7 +19,7 @@ do
         read -p "Permissions $i - " beta
         $i=$beta
         echo "That's your answer: $beta"
-        if [[ $i ==  "Y" ]] || [[ $i == N ]]
+        if [[ $i =  "Y" ]] || [[ $i = N ]]
         then
             echo "Great"
             break
