@@ -2,7 +2,7 @@
 
 # >>>> Number Of Line
 echo "Hey, what line do you want to print?"
-read LINENUM
+read -p "Line Number: " LINENUM
 
 # >>>> Number to echo
 case $LINENUM in 
@@ -33,4 +33,4 @@ echo "Here is the $FORMATNUM line of your file:"
 echo ===============================
 echo 
 
-cat /dev/stdin | sed -n "$LINENUM p"
+cat $1 | sed -n "$LINENUM p"
