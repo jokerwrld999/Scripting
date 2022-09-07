@@ -29,7 +29,7 @@ case $LINENUM in
 esac
 
 
-echo "Here is the $FORMATNUM line of your file:"
+echo "Here is the $FORMATNUM line of your $1 file:"
 echo ===============================
 echo 
 
