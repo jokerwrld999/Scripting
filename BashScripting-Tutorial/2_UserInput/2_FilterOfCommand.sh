@@ -15,12 +15,13 @@ FIELDS="PERMS NUMLINKS OWNER"
 for FIELD in $FIELDS
 do
     case $FIELD in
-        PERMS ) MSG="Permissions - " ;;
-        OWNER ) MSG="File Owner - " ;;
-        GROUP ) MSG="File Group - " ;;
-        SIZE ) MSG="File Size - " ;;
-        DATE ) MSG="Date and Time - " ;;
-        FILENAME ) MSG="Filename - " ;;
+        $FIELD ) MSG="Permissions - " ;;
+        $FIELD ) MSG="Permissions - " ;;
+        $FIELD ) MSG="File Owner - " ;;
+        $FIELD ) MSG="File Group - " ;;
+        $FIELD ) MSG="File Size - " ;;
+        $FIELD ) MSG="Date and Time - " ;;
+        $FIELD ) MSG="Filename - " ;;
         * ) MSG="Incorrect Data"
     esac
     while :
