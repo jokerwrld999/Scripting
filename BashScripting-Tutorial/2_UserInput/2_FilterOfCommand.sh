@@ -12,13 +12,11 @@ echo ====================
 echo
 
 read -p "Permissions - " PERMS
-if [ $PERMS ==  Y] || [$PERMS == N] 
-then
-    echo Great
-else
+while [ $PERMS !=  Y ] || [ $PERMS != N ] 
+do
     echo "Are you retarded or what?" 
     read $PERMS
-fi
+done
 read -p "Number of hard links to the file - " NUMLINKS
 read -p "File Owner - " OWNER
 read -p "File Group - " GROUP
