@@ -11,21 +11,24 @@ echo "Please, type Y or N for what you want"
 echo ====================
 echo
 
-
-while :
-do 
-    read -p "Permissions - " PERMS
-    if [ $PERMS ==  "Y" ] || [ $PERMS == N ]
-    then
-        break
-    else 
-    echo "Are you retarded or what?"
-    echo "Commone you stupid ass, just type Y or N" 
-    fi
+ARGS="PERMS NUMLINKS OWNER"
+for i in $ARGS
+do
+    while :
+    do 
+        read -p "Permissions - " $i
+        if [ $i ==  "Y" ] || [ $i == N ]
+        then
+            break
+        else 
+        echo "Are you retarded or what?"
+        echo "Commone you stupid ass, just type Y or N" 
+        fi
+    done
 done
-read -p "Number of hard links to the file - " NUMLINKS
-read -p "File Owner - " OWNER
-read -p "File Group - " GROUP
-read -p "File Size - " SIZE
-read -p "Date and Time - " DATE
-read -p "Filename - " FILENAME 
+#read -p "Number of hard links to the file - " NUMLINKS
+#read -p "File Owner - " OWNER
+#read -p "File Group - " GROUP
+#read -p "File Size - " SIZE
+#read -p "Date and Time - " DATE
+#read -p "Filename - " FILENAME 
