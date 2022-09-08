@@ -42,21 +42,21 @@ do
 done
 
 STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
-
+i=1
     for j in $STACK
     do
-        i=1
+        
         echo "i $i"
         if [[ $j = Y ]]
         then
             export $j='$\$i '
-            $i=$((i++))
+            
         elif [[ $j = N ]]
         then
             export $j=' '
-             $i=$((i++))
+             
         fi
-        
+        ((i++))
     echo "j $j"
     done
 
