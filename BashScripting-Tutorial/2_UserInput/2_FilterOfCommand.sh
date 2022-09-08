@@ -64,5 +64,5 @@ B=""
 
 echo DOLLARB $B
 
-echo $STACK
-ls -l | awk '{print $1 $2 $3 $4 $5 $6}'
+
+ls -l | awk '{print $B}'
