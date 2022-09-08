@@ -50,7 +50,7 @@ B=""
         echo "i $i"
         if [[ $j = Y ]]
         then
-            export B="$B"\$"$i "
+            export B="$B"\$"$i "  
             
         elif [[ $j = N ]]
         then
@@ -62,7 +62,11 @@ B=""
     done
 
 
+
+case $B in
+    ( 6 ) $B='$6 " " $7 " " $8' ;;
+    ( 7 ) $B='$9 " "' ;;
+
+esac
 echo DOLLARB $B
-
-
 ls -l | awk "{print $B}"
