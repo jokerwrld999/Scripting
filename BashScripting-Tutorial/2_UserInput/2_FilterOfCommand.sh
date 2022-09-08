@@ -58,11 +58,11 @@ B=""
              
         fi
         ((i++))
-    echo "B $B"
+    
     done
 
 
 echo DOLLARB $B
 
 
-ls -l | awk '{print $B}'
+ls -l | awk "{print $B}"
