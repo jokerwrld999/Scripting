@@ -50,7 +50,7 @@ B=""
         echo "i $i"
         if [[ $j = Y ]]
         then
-            export B="$B""$i"
+            export B="$B"$"$i "
             
         elif [[ $j = N ]]
         then
