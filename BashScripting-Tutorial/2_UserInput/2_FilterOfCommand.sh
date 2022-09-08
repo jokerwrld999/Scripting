@@ -63,8 +63,9 @@ B=""
     
     done
 
+DATESED=echo $B | grep -o '$6'
  case $B in
-                ( $6 ) $B='$6 " " $7 " " $8' ;;
+                ( $DATESED ) $B='$6 " " $7 " " $8' ;;
                 ( $7 ) $B='$9 " "' ;;
 esac
 
