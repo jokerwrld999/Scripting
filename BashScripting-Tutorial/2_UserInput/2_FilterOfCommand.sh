@@ -50,11 +50,11 @@ STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
         if [[ $j = Y ]]
         then
             export $j='$\$i '
-            $i+=1
+            $i=$((i++))
         elif [[ $j = N ]]
         then
             export $j=' '
-            $i+=1
+             $i=$((i++))
         fi
         
     echo "j $j"
