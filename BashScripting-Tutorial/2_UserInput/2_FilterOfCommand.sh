@@ -49,15 +49,15 @@ i=1
         echo "i $i"
         if [[ $j = Y ]]
         then
-            export $j="\$$i "
+            export B="\$$i "
             
         elif [[ $j = N ]]
         then
-            export $j=" "
+            export B=" "
              
         fi
         ((i++))
-    echo "j $j"
+    echo "B $B"
     done
 
 
