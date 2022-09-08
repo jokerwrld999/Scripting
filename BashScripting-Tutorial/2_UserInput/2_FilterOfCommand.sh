@@ -42,5 +42,32 @@ do
 done
 
 STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
-echo $STACK
-ls -l | awk '{print $1 $2 $3 $4 $5 $6}'
+i=1
+B=""
+    for j in $STACK
+    do
+        
+        echo "i $i"
+        if [[ $j = Y ]]
+        then
+            export B="$B"\$"$i "  
+           
+
+            
+        elif [[ $j = N ]]
+        then
+            export B="$B "
+             
+        fi
+        ((i++))
+    
+    done
+
+DATESED=$(echo $B | grep -o '$6')
+ case $B in
+                ( $DATESED ) $B='$6 " " $7 " " $8' ;;
+                ( $7 ) $B='$9 " "' ;;
+esac
+
+echo DOLLARB $B
+ls -l | awk "{print $B}"
