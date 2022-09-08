@@ -43,8 +43,6 @@ done
 
 STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
 
-for (( i=1; i<=7; i++ ))
-do
     for j in $STACK
     do
         
@@ -57,10 +55,10 @@ do
             export $j=' '
         fi
 
-echo "j $j"
+    echo "j $j"
     done
 
-done
+
 echo $j
 
 echo $STACK
