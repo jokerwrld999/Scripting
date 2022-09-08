@@ -42,5 +42,26 @@ do
 done
 
 STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
+
+for (( i=1; i<=7; i++ ))
+do
+    for j in $STACK
+    do
+        
+        echo "i $i"
+        if [[ $j = Y ]]
+        then
+            export $j='$\$i '
+        elif [[ $j = N ]]
+        then
+            export $j=' '
+        fi
+
+echo "j $j"
+    done
+
+done
+echo $j
+
 echo $STACK
 ls -l | awk '{print $1 $2 $3 $4 $5 $6}'
