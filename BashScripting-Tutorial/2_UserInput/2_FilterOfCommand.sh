@@ -54,7 +54,7 @@ STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
         then
             export $j=' '
         fi
-        $i+=1
+        $i++
     echo "j $j"
     done
 
