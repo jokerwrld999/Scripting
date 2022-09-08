@@ -45,7 +45,7 @@ STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
 
     for j in $STACK
     do
-        
+        i=1
         echo "i $i"
         if [[ $j = Y ]]
         then
@@ -54,7 +54,7 @@ STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
         then
             export $j=' '
         fi
-
+        i+=1
     echo "j $j"
     done
 
