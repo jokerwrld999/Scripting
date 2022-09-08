@@ -43,17 +43,18 @@ done
 
 STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
 i=1
+B=""
     for j in $STACK
     do
         
         echo "i $i"
         if [[ $j = Y ]]
         then
-            export B="\$$i "
+            export B="$B""$i"
             
         elif [[ $j = N ]]
         then
-            export B=" "
+            export B="$B "
              
         fi
         ((i++))
