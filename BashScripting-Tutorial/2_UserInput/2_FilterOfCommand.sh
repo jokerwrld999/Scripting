@@ -49,11 +49,11 @@ i=1
         echo "i $i"
         if [[ $j = Y ]]
         then
-            export $j='$\$i '
+            export $j="\$$i "
             
         elif [[ $j = N ]]
         then
-            export $j=' '
+            export $j=" "
              
         fi
         ((i++))
