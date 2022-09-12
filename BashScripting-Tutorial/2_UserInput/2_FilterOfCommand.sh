@@ -14,7 +14,7 @@ echo
 FIELDS="PERMS NUMLINKS OWNER GROUP SIZE DATE FILENAME"
 for FIELD in $FIELDS
 do
-    counter=1
+    export counter=1
     while :
     do
         case $FIELD in
