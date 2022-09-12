@@ -43,12 +43,15 @@ done
 
 STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
 
-
-DATESED=$(echo $B | grep -o '$6')
- case $STACK in
-                ( $PERMS=Y ) $(echo Permissions are Yesssss)  ;;
-                ( $7 ) $B='$9 " "' ;;
-esac
+for ATTR in $STACK
+do
+    i=1
+    if [[ $ATTR = Y ]]
+    then
+        $ATTR="\$$i "
+        echo "Your atribute is $ATTR"
+    fi
+done
 
 
 #ls -l | awk "{print $B}"
