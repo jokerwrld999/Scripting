@@ -3,15 +3,12 @@ Vagrant.configure("2") do |config|
     config.hostmanager.manage_host = true
     
     config.vm.define "scriptbox" do |scriptbox|
-      scriptbox.vm.box = "centos/7"
+      scriptbox.vm.box = "ubuntu/trusty64"
       scriptbox.vm.hostname = "scriptbox"
       scriptbox.vm.network "private_network", ip: "192.168.56.2"
-        scriptbox.vm.provider "virtualbox" do |vb|
-            vb.memory = "1024"
-        end
     end
     
-     config.vm.define "web01" do |web01|
+:'     config.vm.define "web01" do |web01|
       web01.vm.box = "centos/7"
       web01.vm.hostname = "web01"
       web01.vm.network "private_network", ip: "192.168.56.3"
@@ -34,4 +31,5 @@ Vagrant.configure("2") do |config|
         web03.vm.hostname = "web03"
         web03.vm.network "private_network", ip: "192.168.56.5"
     end
+'
 end
