@@ -46,7 +46,7 @@ STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
 
 DATESED=$(echo $B | grep -o '$6')
  case $STACK in
-                ( $PERMS=Y ) echo Permissions are Yesssss ;;
+                ( $PERMS=Y ) $(echo Permissions are Yesssss)  ;;
                 ( $7 ) $B='$9 " "' ;;
 esac
 
