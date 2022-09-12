@@ -49,9 +49,12 @@ do
     if [[ $ATTR = Y ]]
     then
         $ATTR="\$$i "
+        $(( i++ ))
         echo "Your atribute is $ATTR"
     fi
 done
+
+echo $PERMS
 
 
 #ls -l | awk "{print $B}"
