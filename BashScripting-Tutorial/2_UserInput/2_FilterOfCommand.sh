@@ -14,6 +14,7 @@ echo
 FIELDS="PERMS NUMLINKS OWNER GROUP SIZE DATE FILENAME"
 for FIELD in $FIELDS
 do
+    counter=1
     while :
     do
         case $FIELD in
@@ -28,7 +29,7 @@ do
         esac
 
         read -p "$MSG" TMP
-        counter=1
+        
         if [[ $TMP =  "Y" ]] || [[ $TMP = N ]]
         then
             case $TMP in
@@ -38,7 +39,7 @@ do
             #export $FIELD=$TMP
              
              
-             ((counter+=1))
+             (($counter+=1))
             echo "Great"
             break
         else 
