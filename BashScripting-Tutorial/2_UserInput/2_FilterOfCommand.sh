@@ -38,7 +38,7 @@ do
             #export $FIELD=$TMP
              
              
-             $(( $counter++ ))
+             ((counter+=1))
             echo "Great"
             break
         else 
