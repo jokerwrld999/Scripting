@@ -14,6 +14,7 @@ echo
 FIELDS="PERMS NUMLINKS OWNER GROUP SIZE DATE FILENAME"
 for FIELD in $FIELDS
 do
+    export counter=1
     while :
     do
         case $FIELD in
@@ -28,10 +29,17 @@ do
         esac
 
         read -p "$MSG" TMP
-
+        
         if [[ $TMP =  "Y" ]] || [[ $TMP = N ]]
         then
-            export $FIELD=$TMP
+            case $TMP in
+                ( Y ) export $FIELD="\$$counter " 
+
+            esac
+            #export $FIELD=$TMP
+             
+             
+             (($counter+=1))
             echo "Great"
             break
         else 
@@ -44,11 +52,8 @@ done
 STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
 
 
-DATESED=$(echo $B | grep -o '$6')
- case $STACK in
-                ( $PERMS=Y ) $(echo Permissions are Yesssss)  ;;
-                ( $7 ) $B='$9 " "' ;;
-esac
+
+echo $STACK
 
 
-#ls -l | awk "{print $B}"
+#ls -l | awk "{print $STACK}"
