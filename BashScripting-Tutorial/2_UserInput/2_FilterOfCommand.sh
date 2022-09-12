@@ -28,10 +28,17 @@ do
         esac
 
         read -p "$MSG" TMP
-
+        counter=1
         if [[ $TMP =  "Y" ]] || [[ $TMP = N ]]
         then
-            export $FIELD=$TMP
+            case $TMP in
+                ( Y ) export $FIELD="\$$counter " 
+
+            esac
+            #export $FIELD=$TMP
+             
+             
+             $(( $counter++ ))
             echo "Great"
             break
         else 
@@ -43,18 +50,9 @@ done
 
 STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
 
-for ATTR in $STACK
-do
-    i=1
-    if [[ $ATTR = Y ]]
-    then
-        $ATTR="\$$i "
-        $(( i++ ))
-        echo "Your atribute is $ATTR"
-    fi
-done
-
-echo $PERMS
 
 
-#ls -l | awk "{print $B}"
+echo $STACK
+
+
+#ls -l | awk "{print $STACK}"
