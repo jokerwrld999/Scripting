@@ -12,11 +12,13 @@ echo ====================
 echo
 
 FIELDS="PERMS NUMLINKS OWNER GROUP SIZE DATE FILENAME"
+counter=1
 for FIELD in $FIELDS
 do
     while :
     do
         case $FIELD in
+        ( FILETYPE ) MSG="The type of file - " ;;
         ( PERMS ) MSG="Permissions - " ;;
         ( NUMLINKS ) MSG="Number of links - " ;;
         ( OWNER ) MSG="File Owner - " ;;
@@ -28,33 +30,31 @@ do
         esac
 
         read -p "$MSG" TMP
-        counter=1
-        if [[ $TMP =  "Y" ]]
+        
+        if [[ $TMP =  "Y" ]] || [[ $TMP =  "y" ]]
         then
             export $FIELD="\$$counter " 
-
             #export $FIELD=$TMP
              
-             
-           
+            counter=$(( $counter + 1 ))
             echo "Great"
             break
-        elif [[ $TMP = N ]]
+        elif [[ $TMP = "N" ]] || [[ $TMP = "n" ]]
         then
+            counter=$(( $counter + 1 ))
             break
         else 
             echo "Are you retarded or what?"
-            echo "Come on you stupid ass, just type Y or N" a
+            echo "Come on you stupid ass, just type Y or N"
         fi
-        export (( counter++ ))
+        
     done   
 done
 
-STACK="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
+STACK="$FILETYPE $PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
 
+columns=$(echo $STACK |  sed 's/$7/$9/g' | sed 's/\$6/$6 $7 $8/g') 
 
+echo $columns
 
-echo $STACK
-
-
-#ls -l | awk "{print $STACK}"
+ls -l | awk "{print \"$columns\"}"

@@ -15,10 +15,9 @@ echo $b # 16
 a=$(( 4 * 5 ))
 echo $a # 20
 
-export counter=2
-
-while [ $counter < 5 ]
+x=1
+while [ $x -le 5 ]
 do
-    (($counter++))
-    echo $counter
+  echo "Welcome $x times"
+  x=$(( $x + 1 ))
 done
