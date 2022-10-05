@@ -11,7 +11,7 @@ then
     webDir="/srv/http"
     webServer="httpd"
     packagesNeeded="apache unzip wget"
-    sudo pacman -S $packagesNeeded
+    sudo pacman -S --noconfirm $packagesNeeded
 
 # **** Debian Based Distros
 elif [ -x "$(command -v apt)" ]; 
