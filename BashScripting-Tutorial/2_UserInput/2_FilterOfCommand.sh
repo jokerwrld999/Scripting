@@ -14,7 +14,6 @@ echo
 FIELDS="PERMS NUMLINKS OWNER GROUP SIZE DATE FILENAME"
 for FIELD in $FIELDS
 do
-    export counter=1
     while :
     do
         case $FIELD in
@@ -29,23 +28,25 @@ do
         esac
 
         read -p "$MSG" TMP
-        
-        if [[ $TMP =  "Y" ]] || [[ $TMP = N ]]
+        counter=1
+        if [[ $TMP =  "Y" ]]
         then
-            case $TMP in
-                ( Y ) export $FIELD="\$$counter " 
+            export $FIELD="\$$counter " 
 
-            esac
             #export $FIELD=$TMP
              
              
-             (($counter+=1))
+           
             echo "Great"
+            break
+        elif [[ $TMP = N ]]
+        then
             break
         else 
             echo "Are you retarded or what?"
             echo "Come on you stupid ass, just type Y or N" a
         fi
+        export (( counter++ ))
     done   
 done
 
