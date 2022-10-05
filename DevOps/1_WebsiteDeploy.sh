@@ -26,7 +26,7 @@ then
 elif [ -x "$(command -v dnf)" ];     
 then 
     packagesNeeded="unzip wget"
-    sudo dnf install group install "Web Server"
+    sudo dnf group install "Web Server"
     sudo dnf install $packagesNeeded
 # --- Adjusting The Firewall
     sudo firewall-cmd --add-service=http --add-service=https --permanent
