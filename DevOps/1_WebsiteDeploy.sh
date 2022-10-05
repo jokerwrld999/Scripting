@@ -1,21 +1,48 @@
 #!/bin/bash
 
 # >>>> Global Variables
-PACKS="httpd unzip wget"
-WEBDIR=/var/www/html
-SERVICE=httpd
-TMP=/tmp
+webDir=/var/www/html
+tmpDir=/tmp
 
 # >>>> Choosing Package Manager
+# **** Arch Distros
+if [ -x "$(command -v pacman)" ];
+then
+    webServer="httpd"
+    packagesNeeded="$apache unzip wget"
+    sudo pacman -S $packagesNeeded
+
+# **** Debian Based Distros
+elif [ -x "$(command -v apt)" ]; 
+then 
+    webServer="apache2"
+    packagesNeeded="$webServer unzip wget"
+    sudo apt install $packagesNeeded
+# --- Adjusting The Firewall
+    sudo ufw allow 'Apache'
+
+# **** Fedora, RedHat, CentOS Distros
+elif [ -x "$(command -v dnf)" ];     
+then 
+    packagesNeeded="unzip wget"
+    sudo dnf install group install "Web Server"
+    sudo dnf install $packagesNeeded
+# --- Adjusting The Firewall
+    sudo firewall-cmd --add-service=http --add-service=https --permanent
+    sudo firewall-cmd --reload
+
+# **** OpenSUSE Distro
+elif [ -x "$(command -v zypper)" ];  
+then 
+    packagesNeeded="httpd unzip wget"
+    sudo zypper install $packagesNeeded
+else 
+    echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: $packagesNeeded">&2; fi
 
 
-
-# >>>> Installing Packs
-sudo dnf install -y $PACKS
-
-# >>>> Enabling Service
-sudo systemctl start $SERVICE
-sudo systemctl enable $SERVICE
+# >>>> Enabling Server
+sudo systemctl start $webServer
+sudo systemctl enable $webServer
 
 # >>>> Getting an URL
 echo "Please, enter a URL to a website, so I can deploy your resource"
@@ -26,22 +53,22 @@ BASENAME=$(basename $URL | cut -d '.' -f1)
 ZIP=$BASENAME.zip
 
 # >>>> Downloading And Unpacking Website
-wget -O $TMP/$ZIP $URL 
-sudo unzip $TMP/$ZIP -d $TMP/$BASENAME/ > $TMP/logs.log
+wget -O $tmpDir/$ZIP $URL 
+sudo unzip $tmpDir/$ZIP -d $tmpDir/$BASENAME/ > $tmpDir/logs.log
 
 # *** Retrive The Name Of Website Folder
-FOLDERNAME=$(cat $TMP/logs.log | sed -n 's|\(/index\).*||p' | sed -n 's|.*/||p')
+FOLDERNAME=$(cat $tmpDir/logs.log | sed -n 's|\(/index\).*||p' | sed -n 's|.*/||p')
 
 # *** Website Folder Location
-WEBSITE=$TMP/$BASENAME/$FOLDERNAME/
+WEBSITE=$tmpDir/$BASENAME/$FOLDERNAME/
 
-# >>>> Plasing Website And Cleaning TMP
-sudo rm -rf $WEBDIR/*
-sudo cp -r $WEBSITE/* $WEBDIR/
-sudo rm -rf $TMP/*
+# >>>> Plasing Website And Cleaning tmpDir
+sudo rm -rf $webDir/*
+sudo cp -r $WEBSITE/* $webDir/
+sudo rm -rf $tmpDir/*
 
-# >>>> Reastart Service
-sudo systemctl restart $SERVICE
+# >>>> Reastart Server
+sudo systemctl restart $webServer
 #/sbin/restorecon -v /var/www/html/index.html 
 
 #grep link intet
