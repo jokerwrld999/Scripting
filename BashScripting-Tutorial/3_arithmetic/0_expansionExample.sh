@@ -14,3 +14,11 @@ echo $b # 13
 echo $b # 16
 a=$(( 4 * 5 ))
 echo $a # 20
+
+export counter=2
+
+while [ $counter < 5 ]
+do
+    (($counter++))
+    echo $counter
+done
