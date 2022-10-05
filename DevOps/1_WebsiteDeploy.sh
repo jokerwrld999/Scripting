@@ -24,7 +24,8 @@ then
 
 # **** Fedora, RedHat, CentOS Distros
 elif [ -x "$(command -v dnf)" ];     
-then 
+then
+    webServer="httpd" 
     packagesNeeded="unzip wget"
     sudo dnf group install "Web Server"
     sudo dnf install $packagesNeeded
