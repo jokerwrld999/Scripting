@@ -1,0 +1,6 @@
+warning: unzip-6.0-19 is up to date -- reinstalling
+warning: wget-1.21.3-1 is up to date -- reinstalling
+:: Proceed with installation? [Y/n] 
+Interrupt signal received
+Failed to start httpd.service: Unit httpd.service not found.
+Failed to enable unit: Unit file httpd.service does not exist.

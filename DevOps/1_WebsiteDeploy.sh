@@ -8,7 +8,7 @@ tmpDir=/tmp
 # **** Arch Distros
 if [ -x "$(command -v pacman)" ];
 then
-    webDir=/srv/http
+    webDir="/srv/http"
     webServer="httpd"
     packagesNeeded="$apache unzip wget"
     sudo pacman -S $packagesNeeded
