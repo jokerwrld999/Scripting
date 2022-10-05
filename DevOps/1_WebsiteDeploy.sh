@@ -6,6 +6,10 @@ WEBDIR=/var/www/html
 SERVICE=httpd
 TMP=/tmp
 
+# >>>> Choosing Package Manager
+
+
+
 # >>>> Installing Packs
 sudo dnf install -y $PACKS
 
