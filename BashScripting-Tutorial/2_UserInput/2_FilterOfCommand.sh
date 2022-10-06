@@ -18,12 +18,11 @@ do
     while :
     do
         case $FIELD in
-        ( FILETYPE ) MSG="The type of file - " ;;
-        ( PERMS ) MSG="Permissions - " ;;
+        ( PERMS ) MSG="The Type Of Files And Permissions - " ;;
         ( NUMLINKS ) MSG="Number of links - " ;;
-        ( OWNER ) MSG="File Owner - " ;;
-        ( GROUP ) MSG="File Group - " ;;
-        ( SIZE ) MSG="File Size - " ;;
+        ( OWNER ) MSG="File's Owner - " ;;
+        ( GROUP ) MSG="File's Group - " ;;
+        ( SIZE ) MSG="File's Size - " ;;
         ( DATE ) MSG="Date and Time - " ;;
         ( FILENAME ) MSG="Filename - " ;;
         ( * ) MSG="Incorrect Data" ;;
@@ -36,10 +35,7 @@ do
             backslashDollar="\$"
             spaceDelim='" "'
             export $FIELD="${backslashDollar}${counter}${spaceDelim}" 
-            #export $FIELD=$TMP
-             
             counter=$(( $counter + 1 ))
-            echo "Great"
             break
         elif [[ $TMP = "N" ]] || [[ $TMP = "n" ]]
         then
@@ -53,15 +49,10 @@ do
     done   
 done
 
-STACK="$FILETYPE $PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
+stringOfAnswers="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
+filteredString=$(echo $stringOfAnswers |  sed 's|$7|$9|g' | sed 's|\$6|$6" "$7" "$8|g')
 
-columns=$(echo $STACK |  sed 's|$7|$9|g' | sed 's|\$6|$6" "$7" "$8|g')
-
-echo $STACK
-echo $columns
-
-
-ls -l > list.txt 
-var="\$1 \$2 \$3"
-awk "{print $columns}" list.txt
+ls -la > list.txt
+sed -i '2s/^/PERMITIONS NUMLINKS OWNER GROUP SIZE MONTH DAY TIME FILENAME\n/' list.txt
+cat list.txt | awk "{print $filteredString}" | column -ts ' '
 

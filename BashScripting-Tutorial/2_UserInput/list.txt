@@ -1,4 +1,7 @@
-total 8
+total 16
+PERMITIONS NUMLINKS OWNER GROUP SIZE MONTH DAY TIME FILENAME
+drwxr-xr-x 2 jokerwrld jokerwrld 4096 Oct  6 18:08 .
+drwxr-xr-x 5 jokerwrld jokerwrld 4096 Oct  5 17:50 ..
 -rw-r--r-- 1 jokerwrld jokerwrld  586 Oct  5 11:12 1_PrintALine.sh
--rwxr-xr-x 1 jokerwrld jokerwrld 1661 Oct  6 14:46 2_FilterOfCommand.sh
--rw-r--r-- 1 jokerwrld jokerwrld    0 Oct  6 14:46 list.txt
+-rwxr-xr-x 1 jokerwrld jokerwrld 1658 Oct  6 18:07 2_FilterOfCommand.sh
+-rw-r--r-- 1 jokerwrld jokerwrld    0 Oct  6 18:08 list.txt
