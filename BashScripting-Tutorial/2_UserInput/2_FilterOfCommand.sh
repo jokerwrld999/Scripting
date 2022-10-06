@@ -33,7 +33,9 @@ do
         
         if [[ $TMP =  "Y" ]] || [[ $TMP =  "y" ]]
         then
-            export $FIELD="\$$counter " 
+            backslashDollar="\$"
+            spaceDelim='" "'
+            export $FIELD="${backslashDollar}${counter}${spaceDelim}" 
             #export $FIELD=$TMP
              
             counter=$(( $counter + 1 ))
@@ -53,8 +55,13 @@ done
 
 STACK="$FILETYPE $PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
 
-columns=$(echo $STACK |  sed 's/$7/$9/g' | sed 's/\$6/$6 $7 $8/g') 
+columns=$(echo $STACK |  sed 's|$7|$9|g' | sed 's|\$6|$6" "$7" "$8|g')
 
+echo $STACK
 echo $columns
 
-ls -l | awk "{print \"$columns\"}"
+
+ls -l > list.txt 
+var="\$1 \$2 \$3"
+awk "{print $columns}" list.txt
+
