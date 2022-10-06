@@ -52,9 +52,6 @@ done
 stringOfAnswers="$PERMS $NUMLINKS $OWNER $GROUP $SIZE $DATE $FILENAME"
 filteredString=$(echo $stringOfAnswers |  sed 's|$7|$9|g' | sed 's|\$6|$6" "$7" "$8|g')
 
-
-
-
 ls -la > list.txt
 sed -i '2s/^/PERMITIONS NUMLINKS OWNER GROUP SIZE MONTH DAY TIME FILENAME\n/' list.txt
 cat list.txt | awk "{print $filteredString}" | column -ts ' '
