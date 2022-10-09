@@ -1,23 +1,13 @@
 #!/bin/bash
 # Basic arithmetic using double parentheses
-a=$(( 4 + 5 ))
-echo $a # 9
-a=$((3+5))
-echo $a # 8
-b=$(( a + 3 ))
-echo $b # 11
-b=$(( $a + 4 ))
-echo $b # 12
-(( b++ ))
-echo $b # 13
-(( b += 3 ))
-echo $b # 16
-a=$(( 4 * 5 ))
-echo $a # 20
+#let
+let "letMethod = $1 * $2"
+echo "Multiplyed by LET: $letMethod"
 
-x=1
-while [ $x -le 5 ]
-do
-  echo "Welcome $x times"
-  x=$(( $x + 1 ))
-done
+#expr
+exprMethod=$( expr $1 \* $2 )
+echo "Multiplyed by EXPR: $exprMethod"
+
+#double parentheses
+parenthesesMethod=$(( $1 * $2 ))
+echo "Multiplyed by (()): $parenthesesMethod"
