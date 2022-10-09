@@ -1,5 +1,5 @@
 #!/bin/bash
 
 day=$(date +%d)
-nextDay=$(( expr $day++ ))
+nextDay=$(( $day+1 ))
 echo "date +$nextDay-%m-%y"
