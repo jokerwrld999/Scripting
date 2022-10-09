@@ -2,4 +2,4 @@
 
 day=$(date +%d)
 nextDay=$(( $day+1 ))
-date +$nextDay-%m-%y
+echo "Tommorow's date is "date +$nextDay-%m-%y
