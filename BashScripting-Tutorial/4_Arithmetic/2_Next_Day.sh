@@ -1,3 +1,5 @@
 #!/bin/bash
 
-echo "date $((%d+1))-$m-$y"
+day=$(date %d)
+nextDay=$(( $day++ ))
+echo "date $nextDay-%m-%y"
