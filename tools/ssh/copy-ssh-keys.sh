@@ -75,7 +75,7 @@ generate_and_copy_keys() {
   else
     echo "Copying '$key_file.pub' to $ip_address..."
     ssh-keygen -q -f ~/.ssh/known_hosts -R "$ip_address" &> /dev/null
-    echo "$ssh_password" | sshpass ssh-copy-id -o 'StrictHostKeyChecking=no' -i "$key_path.pub" $username@$ip_address &>/dev/null
+    echo "$ssh_password" | sshpass ssh-copy-id -o 'StrictHostKeyChecking=no' -i "$key_path.pub" $username@$ip_address #&>/dev/null
   fi
 }
 
