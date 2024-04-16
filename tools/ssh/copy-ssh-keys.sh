@@ -59,6 +59,8 @@ else
   ssh_password=$(< $ssh_password_path)
 fi
 
+echo "Your ssh pass is $ssh_password"
+
 generate_and_copy_keys() {
   local ssh_password="$1"
   local username="$2"
