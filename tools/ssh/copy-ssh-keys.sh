@@ -30,23 +30,27 @@ function key_exists() {
 
 declare -A server_info
 
-inventory_dir="./inventory"
+inventory_path="./inventory"
 
-for filename in "$inventory_dir"/*; do
-  if [[ -f "$filename" ]]; then
-    while IFS= read -r line; do
-      ip_address=$(echo "$line" | awk '{print $1}')
-      username=$(echo "$line" | awk '{print $2}' | cut -d "=" -f2)
-      username=${username:-root}
+if [ -d "$inventory_path" ]; then
+  for filename in "$inventory_path"/*; do
+    if [[ -f "$filename" ]]; then
+      while IFS= read -r line; do
+        ip_address=$(echo "$line" | awk '{print $1}')
+        username=$(echo "$line" | awk '{print $2}' | cut -d "=" -f2)
+        username=${username:-root}
 
-      if [[ ! $ip_address =~ ^[0-9]{1,3}(\.[0-9]{1,3}){3}$ ]] || ! ping -c1 -W1 $ip_address &> /dev/null; then
-        continue
-      fi
+        if [[ ! $ip_address =~ ^[0-9]{1,3}(\.[0-9]{1,3}){3}$ ]] || ! ping -c1 -W1 $ip_address &> /dev/null; then
+          continue
+        fi
 
-      server_info["$ip_address"]="$username"
-    done < "$filename"
-  fi
-done
+        server_info["$ip_address"]="$username"
+      done < "$filename"
+    fi
+  done
+else
+  echo "$inventory_path does not exist."
+fi
 
 
 if [[ ! -s ./.ssh_pass ]]; then
