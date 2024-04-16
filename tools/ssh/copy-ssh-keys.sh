@@ -56,7 +56,7 @@ ssh_passssword_path="./.ssh_pass"
 if [[ ! -s $ssh_passssword_path ]]; then
   read -p "Enter the SSH password for the server: " ssh_password
 else
-  ssh_password=$(< $ssh_password_path)
+  ssh_password=$(cat $ssh_password_path)
 fi
 
 echo "Your ssh pass is $ssh_password"
