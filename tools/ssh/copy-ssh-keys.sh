@@ -30,7 +30,6 @@ function key_exists() {
 
 declare -A server_info
 
-# inventory_dir="/home/jokerwrld/github/k3s-on-proxmox/2_ansible/inventory"
 inventory_dir="./inventory"
 
 for filename in "$inventory_dir"/*; do
@@ -50,11 +49,8 @@ for filename in "$inventory_dir"/*; do
 done
 
 
-ssh_password=$(cat ./.ssh_pass)
-
-if [[ -z "$ssh_password" ]]; then
+if [[ ! -s ./.ssh_pass ]]; then
   read -p "Enter the SSH password for the server: " ssh_password
-  echo
 fi
 
 generate_and_copy_keys() {
