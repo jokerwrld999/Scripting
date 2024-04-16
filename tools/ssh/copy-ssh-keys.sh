@@ -52,9 +52,11 @@ else
   echo "$inventory_path does not exist."
 fi
 
-
-if [[ ! -s ./.ssh_pass ]]; then
+ssh_passssword_path="./.ssh_pass"
+if [[ ! -s $ssh_passssword_path ]]; then
   read -p "Enter the SSH password for the server: " ssh_password
+else
+  ssh_password=$(< $ssh_password_path)
 fi
 
 generate_and_copy_keys() {
