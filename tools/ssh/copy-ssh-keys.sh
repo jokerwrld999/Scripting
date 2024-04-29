@@ -52,7 +52,7 @@ else
   echo "$inventory_path does not exist."
 fi
 
-ssh_password_path="./.ssh_pass"
+ssh_password_path="./secure/.ssh_pass"
 if [[ ! -s $ssh_password_path ]]; then
   read -p "Enter the SSH password for the server: " ssh_password
 else
